@@ -1,9 +1,12 @@
 package fisk.chipcloud;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.CheckedTextView;
 
+//Lint is recommending useing AppCompat but that'd add a dependency on the support lib, want to avoid that if possible:
+@SuppressLint("AppCompatCustomView")
 public class ToggleChip extends CheckedTextView {
 
 
