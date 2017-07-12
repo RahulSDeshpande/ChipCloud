@@ -94,7 +94,7 @@ You can find the latest version in the releases tab above: https://github.com/fi
 
 More options at jitpack.io: https://jitpack.io/#fiskurgit/ChipCloud
 
-##Licence
+## Licence
 
 Full licence here: https://github.com/fiskurgit/ChipCloud/blob/master/LICENSE
 
