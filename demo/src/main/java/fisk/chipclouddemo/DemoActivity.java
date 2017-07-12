@@ -29,8 +29,10 @@ public class DemoActivity extends AppCompatActivity {
         .selectMode(ChipCloud.SelectMode.multi)
         .checkedChipColor(Color.parseColor("#ddaa00"))
         .checkedTextColor(Color.parseColor("#ffffff"))
-        .uncheckedChipColor(Color.parseColor("#efefef"))
-        .uncheckedTextColor(Color.parseColor("#666666"));
+        .uncheckedChipColor(Color.parseColor("#e0e0e0"))
+        .showClose(true, Color.parseColor("#a6a6a6"))
+        .useInsetPadding(false)
+        .uncheckedTextColor(Color.parseColor("#000000"));
 
     ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
 

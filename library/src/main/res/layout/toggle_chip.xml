@@ -8,5 +8,8 @@
   android:minWidth="50dp"
   android:gravity="center"
   android:paddingLeft="12dp"
-  android:paddingRight="12dp"
+  android:paddingRight="8dp"
+  android:drawablePadding="4dp"
+  android:maxLines="1"
+  android:singleLine="true"
   android:background="@drawable/toggle_button"/>

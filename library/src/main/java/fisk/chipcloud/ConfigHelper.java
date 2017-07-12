@@ -1,8 +1,23 @@
 package fisk.chipcloud;
 
+import android.content.Context;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
+
+import eu.fiskur.chipcloud.R;
 
 class ConfigHelper {
+
+  static Drawable closeDrawable(Context context, int xColour){
+    Drawable closeX = ContextCompat.getDrawable(context, R.drawable.cross);
+    Drawable wrappedX = closeX.mutate();
+    wrappedX = DrawableCompat.wrap(wrappedX);
+    DrawableCompat.setTint(wrappedX, xColour);
+    DrawableCompat.setTintMode(wrappedX, PorterDuff.Mode.SRC_IN);
+    return wrappedX;
+  }
 
   static void initialise(ToggleChip toggleChip, ChipCloudConfig config){
     if(config != null){

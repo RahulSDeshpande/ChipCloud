@@ -28,6 +28,6 @@ dependencies {
   testCompile 'junit:junit:4.12'
 
   compile 'com.google.android:flexbox:0.2.5'
-  //compile project(path: ':library')
-  compile 'com.github.fiskurgit:ChipCloud:3.0.3'
+  compile project(path: ':library')
+  //compile 'com.github.fiskurgit:ChipCloud:3.0.3'
 }

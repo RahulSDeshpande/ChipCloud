@@ -2,6 +2,7 @@ package fisk.chipcloud;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,8 @@ public class ChipCloud implements View.OnClickListener{
 
   private ChipListener chipListener;
   private boolean ignoreAutoChecks = false;
+
+  private Drawable closeX = null;
 
   public ChipCloud(Context context, ViewGroup layout){
     this.context = context;
@@ -81,6 +84,12 @@ public class ChipCloud implements View.OnClickListener{
     }
     toggleChip.setLabel(object.toString());
     ConfigHelper.initialise(toggleChip, config);
+    if(config.showClose){
+      if(closeX == null){
+        closeX = ConfigHelper.closeDrawable(context, config.closeTint);
+      }
+      toggleChip.showClose(closeX);
+    }
     toggleChip.setHeight(chipHeight);
     toggleChip.setOnClickListener(this);
     layout.addView(toggleChip);
