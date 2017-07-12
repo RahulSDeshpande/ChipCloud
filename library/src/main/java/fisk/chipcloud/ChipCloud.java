@@ -7,6 +7,8 @@ import android.graphics.drawable.StateListDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 
 import java.util.List;
 
@@ -177,12 +179,38 @@ public class ChipCloud implements View.OnClickListener{
         }
         break;
       case close:
-        int index = layout.indexOfChild(view);
-        ToggleChip deletedChip = (ToggleChip) view;
-        if(deletedListener != null){
-          deletedListener.chipDeleted(index, deletedChip.getText().toString());
+        final int index = layout.indexOfChild(view);
+        final ToggleChip deletedChip = (ToggleChip) view;
+        if(config.closeAnimationPeriod != -1){
+          AlphaAnimation anim = new AlphaAnimation(1.0f, 0.0f);
+          anim.setDuration(config.closeAnimationPeriod);
+          anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+              if(deletedListener != null){
+                deletedListener.chipDeleted(index, deletedChip.getText().toString());
+              }
+              layout.removeView(deletedChip);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+          });
+          view.startAnimation(anim);
+        }else{
+          if(deletedListener != null){
+            deletedListener.chipDeleted(index, deletedChip.getText().toString());
+          }
+          layout.removeView(deletedChip);
         }
-        layout.removeView(view);
+
         break;
       case none:
       default:

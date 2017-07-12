@@ -62,7 +62,7 @@ public class DemoActivity extends AppCompatActivity {
         .checkedChipColor(Color.parseColor("#ddaa00"))
         .checkedTextColor(Color.parseColor("#ffffff"))
         .uncheckedChipColor(Color.parseColor("#e0e0e0"))
-        .showClose(Color.parseColor("#a6a6a6"))
+        .showClose(Color.parseColor("#a6a6a6"), 2000)
         .useInsetPadding(false)
         .uncheckedTextColor(Color.parseColor("#000000"));
 

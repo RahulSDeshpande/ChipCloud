@@ -11,6 +11,7 @@ public class ChipCloudConfig {
   public int uncheckedTextColor = -1;
   public ChipCloud.SelectMode selectMode = ChipCloud.SelectMode.multi;
   public boolean useInsetPadding = false;
+  public long closeAnimationPeriod = -1;
   public int closeTint = -1;
 
   public ChipCloudConfig(){
@@ -54,6 +55,13 @@ public class ChipCloudConfig {
   public ChipCloudConfig showClose(int closeTint){
     this.selectMode = ChipCloud.SelectMode.close;
     this.closeTint = closeTint;
+    return this;
+  }
+
+  public ChipCloudConfig showClose(int closeTint, long closeAnimationPeriod){
+    this.selectMode = ChipCloud.SelectMode.close;
+    this.closeTint = closeTint;
+    this.closeAnimationPeriod = closeAnimationPeriod;
     return this;
   }
 }
