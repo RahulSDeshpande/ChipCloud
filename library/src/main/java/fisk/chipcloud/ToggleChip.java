@@ -4,7 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.CheckedTextView;
+
+import eu.fiskur.chipcloud.R;
 
 //Lint is recommending using AppCompat but that'd add a dependency on the support lib, want to avoid that if possible:
 @SuppressLint("AppCompatCustomView")
@@ -28,6 +31,12 @@ public class ToggleChip extends CheckedTextView {
     }else{
       setCompoundDrawablesWithIntrinsicBounds(null, null, closeDrawable, null);
     }
+
+    int paddingLeft = getResources().getDimensionPixelOffset(R.dimen.twelve_dp);
+    int paddingRight = getResources().getDimensionPixelOffset(R.dimen.eight_dp);
+    setPadding(paddingLeft, 0, paddingRight, 0);
+
+
   }
 
   public void setDrawable(Drawable drawable){
