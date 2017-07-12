@@ -22,6 +22,7 @@ public class ChipCloud implements View.OnClickListener{
     multi,
     single,
     mandatory,
+    close,
     none
   }
 
@@ -34,6 +35,7 @@ public class ChipCloud implements View.OnClickListener{
   private ChipCloudConfig config = null;
 
   private ChipListener chipListener;
+  private ChipDeletedListener deletedListener;
   private boolean ignoreAutoChecks = false;
 
   private Drawable closeX = null;
@@ -53,6 +55,10 @@ public class ChipCloud implements View.OnClickListener{
 
   public void setListener(ChipListener chipListener){
     this.chipListener = chipListener;
+  }
+
+  public void setDeleteListener(ChipDeletedListener deletedListener){
+    this.deletedListener = deletedListener;
   }
 
   public void setListener(ChipListener chipListener, boolean ignoreAutoChecks){
@@ -84,7 +90,7 @@ public class ChipCloud implements View.OnClickListener{
     }
     toggleChip.setLabel(object.toString());
     ConfigHelper.initialise(toggleChip, config);
-    if(config.showClose){
+    if(config.selectMode == SelectMode.close){
       if(closeX == null){
         closeX = ConfigHelper.closeDrawable(context, config.closeTint);
       }
@@ -169,6 +175,14 @@ public class ChipCloud implements View.OnClickListener{
             }
           }
         }
+        break;
+      case close:
+        int index = layout.indexOfChild(view);
+        ToggleChip deletedChip = (ToggleChip) view;
+        if(deletedListener != null){
+          deletedListener.chipDeleted(index, deletedChip.getText().toString());
+        }
+        layout.removeView(view);
         break;
       case none:
       default:

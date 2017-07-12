@@ -1,6 +1,7 @@
 <resources>
   <string name="app_name">ChipCloud</string>
   <string name="standard_cloud">Standard cloud using FlexboxLayout with dividerDrawable:</string>
+  <string name="delete_cloud">Closable chips, using FlexboxLayout with dividerDrawable:</string>
   <string name="horizontalscrollview_example">HorizontalScrollView with useInsetPadding config:</string>
   <string-array name="demo_array">
     <item>Aphex Twin</item>

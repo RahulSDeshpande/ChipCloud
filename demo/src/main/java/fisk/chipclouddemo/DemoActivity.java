@@ -30,8 +30,6 @@ public class DemoActivity extends AppCompatActivity {
         .checkedChipColor(Color.parseColor("#ddaa00"))
         .checkedTextColor(Color.parseColor("#ffffff"))
         .uncheckedChipColor(Color.parseColor("#e0e0e0"))
-        .showClose(true, Color.parseColor("#a6a6a6"))
-        .useInsetPadding(false)
         .uncheckedTextColor(Color.parseColor("#000000"));
 
     ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
@@ -55,9 +53,33 @@ public class DemoActivity extends AppCompatActivity {
       }
     });
 
+    //Deleteable
+    FlexboxLayout deleteableFlexbox = (FlexboxLayout) findViewById(R.id.flexbox_deleteable);
+
+    ChipCloudConfig deleteableConfig = new ChipCloudConfig()
+        .selectMode(ChipCloud.SelectMode.multi)
+        .checkedChipColor(Color.parseColor("#ddaa00"))
+        .checkedTextColor(Color.parseColor("#ffffff"))
+        .uncheckedChipColor(Color.parseColor("#e0e0e0"))
+        .showClose(Color.parseColor("#a6a6a6"))
+        .useInsetPadding(false)
+        .uncheckedTextColor(Color.parseColor("#000000"));
+
+    ChipCloud deleteableCloud = new ChipCloud(this, deleteableFlexbox, deleteableConfig);
+    deleteableCloud.addChip("Ardvark");
+    deleteableCloud.addChip("Baboon");
+    deleteableCloud.addChip("Cat");
+    deleteableCloud.addChip("Dog");
+    deleteableCloud.addChip("Elephant");
+    deleteableCloud.addChip("Fox");
+    deleteableCloud.addChip("Giraffe");
+    deleteableCloud.addChip("Hyena");
+    deleteableCloud.addChip("Iguana");
+
     //Horizontal Scroll
     LinearLayout horizontalScroll = (LinearLayout) findViewById(R.id.horizontal_layout);
     config.useInsetPadding = true;
+    config.selectMode = ChipCloud.SelectMode.multi;
     ChipCloud horizontalChipCloud = new ChipCloud(this, horizontalScroll, config);
     horizontalChipCloud.addChips(demoArray);
   }
