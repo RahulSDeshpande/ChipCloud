@@ -12,6 +12,7 @@ import com.google.android.flexbox.FlexboxLayout;
 
 import fisk.chipcloud.ChipCloud;
 import fisk.chipcloud.ChipCloudConfig;
+import fisk.chipcloud.ChipDeletedListener;
 import fisk.chipcloud.ChipListener;
 import fisk.chipclouddemo.demo.R;
 
@@ -70,11 +71,18 @@ public class DemoActivity extends AppCompatActivity {
     deleteableCloud.addChip("Baboon");
     deleteableCloud.addChip("Cat");
     deleteableCloud.addChip("Dog");
-    deleteableCloud.addChip("Elephant");
+    deleteableCloud.addChip("Eel");
     deleteableCloud.addChip("Fox");
     deleteableCloud.addChip("Giraffe");
     deleteableCloud.addChip("Hyena");
     deleteableCloud.addChip("Iguana");
+
+    deleteableCloud.setDeleteListener(new ChipDeletedListener() {
+      @Override
+      public void chipDeleted(int index, String label) {
+        Log.d(TAG, String.format("chipDeleted at index: %d label: %s", index, label));
+      }
+    });
 
     //Horizontal Scroll
     LinearLayout horizontalScroll = (LinearLayout) findViewById(R.id.horizontal_layout);
