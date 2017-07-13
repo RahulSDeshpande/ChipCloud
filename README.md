@@ -9,6 +9,8 @@ ChipCloud 3 is a fresh rewrite of the original quickly hacked together library. 
 
 Although ChipCloud can be used with any ViewGroup to get the wrapping 'Chip Cloud' that was the original focus of the library you should use [Google's FlexboxLayout](https://github.com/google/flexbox-layout) - see the demo project for a full example.
 
+<img src="images/chipcloud_basic.png"  width="75%">
+
 ```java
 //To create the same wrapping cloud as previous incarnation use Google's FlexboxLayout:
 FlexboxLayout flexbox = (FlexboxLayout) findViewById(R.id.flexbox);
