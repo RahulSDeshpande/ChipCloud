@@ -45,6 +45,47 @@ ChipCloudConfig config = new ChipCloudConfig()
 ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
 ```
 
+## Images/Avatars
+
+<img src="images/chip_cloud_avatars.png" width="50%">
+
+Pass a drawable when you create a chip:
+
+```java
+ChipCloud avatarChipCloud = new ChipCloud(this, avatarLayout, chipcloudConfig);
+drawableChipCloud.addChip("Anna A", ContextCompat.getDrawable(this, R.drawable.anna_a));
+```
+## Delete/Remove
+
+With avatars:  
+<img src="images/chipcloud_avatars_and_close.png" width="50%">
+
+Labels only:  
+<img src="images/chipcloud_close_only.png" width="50%">
+
+Use `showClose` in ChipCloudConfig, the colour is the tint for the cross icon, the long value is an optional fadeout time when the chip is deleted:
+
+```java
+    ChipCloudConfig chipcloudConfig = new ChipCloudConfig()
+        .selectMode(ChipCloud.SelectMode.multi)
+        .checkedChipColor(Color.parseColor("#ddaa00"))
+        .checkedTextColor(Color.parseColor("#ffffff"))
+        .uncheckedChipColor(Color.parseColor("#e0e0e0"))
+        .uncheckedTextColor(Color.parseColor("#000000"))
+        .showClose(Color.parseColor("#a6a6a6"), 500);
+```
+
+alternatively just use `.showClose(Color.parseColor("#a6a6a6")` and the chip will pop with no animation. Add a listener so you can update your model when a user deletes a chip (the index <b>will</b> shuffle so you must do this, or you'll have issues):
+
+```java
+    deleteableCloud.setDeleteListener(new ChipDeletedListener() {
+      @Override
+      public void chipDeleted(int index, String label) {
+        Log.d(TAG, String.format("chipDeleted at index: %d label: %s", index, label));
+      }
+    });
+```
+
 ## Modes
 
 ### Multi  
