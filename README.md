@@ -49,12 +49,13 @@ ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
 
 <img src="images/chip_cloud_avatars.png" width="50%">
 
-Pass a drawable when you create a chip:
+Pass a drawable when you create a chip, they'll be made round and scaled to 32dp, but pass appropriately sized images - scaling images is expensive:
 
 ```java
 ChipCloud avatarChipCloud = new ChipCloud(this, avatarLayout, chipcloudConfig);
 drawableChipCloud.addChip("Anna A", ContextCompat.getDrawable(this, R.drawable.anna_a));
 ```
+
 ## Delete/Remove
 
 With avatars:  
