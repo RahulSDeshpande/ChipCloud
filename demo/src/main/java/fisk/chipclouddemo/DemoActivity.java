@@ -50,7 +50,7 @@ public class DemoActivity extends AppCompatActivity {
         .checkedTextColor(Color.parseColor("#ffffff"))
         .uncheckedChipColor(Color.parseColor("#e0e0e0"))
         .uncheckedTextColor(Color.parseColor("#000000"))
-        .showClose(Color.parseColor("#a6a6a6"));
+        .showClose(Color.parseColor("#a6a6a6"), 500);
 
     ChipCloud drawableWithCloseChipCloud = new ChipCloud(this, flexboxDrawableWithClose, drawableWithCloseConfig);
     drawableWithCloseChipCloud.addChip("Anna A", ContextCompat.getDrawable(this, R.drawable.anna_a));
