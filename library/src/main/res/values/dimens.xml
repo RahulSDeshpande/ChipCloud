@@ -7,5 +7,6 @@
   <dimen name="min_horizontal_spacing">8dp</dimen>
   <dimen name="vertical_spacing">8dp</dimen>
   <dimen name="twelve_dp">12dp</dimen>
+  <dimen name="thirtytwo_dp">32dp</dimen>
   <dimen name="eight_dp">8dp</dimen>
 </resources>

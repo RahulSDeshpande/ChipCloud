@@ -80,7 +80,7 @@ public class ChipCloud implements View.OnClickListener{
     }
   }
 
-  public <T> void addChip(T object){
+  public <T> void addChip(T object, Drawable drawable){
     ToggleChip toggleChip;
     int chipHeight;
     if(config.useInsetPadding){
@@ -92,6 +92,11 @@ public class ChipCloud implements View.OnClickListener{
     }
     toggleChip.setLabel(object.toString());
     ConfigHelper.initialise(toggleChip, config);
+
+    if(drawable != null){
+      toggleChip.setDrawable(context, drawable);
+    }
+
     if(config.selectMode == SelectMode.close){
       if(closeX == null){
         closeX = ConfigHelper.closeDrawable(context, config.closeTint);
@@ -100,7 +105,13 @@ public class ChipCloud implements View.OnClickListener{
     }
     toggleChip.setHeight(chipHeight);
     toggleChip.setOnClickListener(this);
+
+
     layout.addView(toggleChip);
+  }
+
+  public <T> void addChip(T object){
+    addChip(object, null);
   }
 
   public void setChecked(int index){
