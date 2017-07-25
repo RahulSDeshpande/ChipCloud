@@ -50,6 +50,18 @@ public class ToggleChip extends CheckedTextView {
 
   }
 
+  public void setDrawableNoResize(Context context, Drawable drawable){
+    if(getCompoundDrawables()[2] != null) {
+      setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
+      int paddingRight = getResources().getDimensionPixelOffset(R.dimen.eight_dp);
+      setPadding(0, 0, paddingRight, 0);
+    }else{
+      setCompoundDrawablesWithIntrinsicBounds(drawable, null, getCompoundDrawables()[2], null);
+      int paddingRight = getResources().getDimensionPixelOffset(R.dimen.twelve_dp);
+      setPadding(0, 0, paddingRight, 0);
+    }
+  }
+
   public void setDrawable(Context context, Drawable drawable){
     RoundedBitmapDrawable imageDrawable = RoundedBitmapDrawableFactory.create(context.getResources(), drawableToBitmap(drawable));
     imageDrawable.setCircular(true);
