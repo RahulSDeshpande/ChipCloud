@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
-       android:drawable="@drawable/toggle_button"
-       android:insetTop="@dimen/inset"
-       android:insetBottom="@dimen/inset"
-       android:insetLeft="@dimen/inset"
-       android:insetRight="@dimen/inset"/>
+    android:drawable="@drawable/toggle_button"
+    android:insetLeft="@dimen/inset"
+    android:insetTop="@dimen/inset"
+    android:insetRight="@dimen/inset"
+    android:insetBottom="@dimen/inset" />
