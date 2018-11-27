@@ -53,10 +53,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/standard_cloud"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_selected_chips_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:text="Chips selected: 0"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/flexbox"
