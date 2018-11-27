@@ -1,4 +1,1 @@
-<manifest package="eu.fiskur.chipcloud"
-          xmlns:android="http://schemas.android.com/apk/res/android">
-
-</manifest>
+<manifest package="eu.fiskur.chipcloud" />
