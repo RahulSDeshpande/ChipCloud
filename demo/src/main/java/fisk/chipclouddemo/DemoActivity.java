@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexboxLayout;
@@ -17,7 +18,9 @@ import fisk.chipclouddemo.demo.R;
 
 public class DemoActivity extends AppCompatActivity {
 
-    private static final String TAG = "DemoActivity";
+    private final String TAG = "DemoActivity";
+
+    private TextView tvSelectedChipsCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,17 +73,19 @@ public class DemoActivity extends AppCompatActivity {
                 .chipTextSize(16f)
                 .chipPadding(20, 10, 20, 10);
 
-        ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
+        final ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
 
         chipCloud.addChip("HelloWorld!");
 
         String[] demoArray = getResources().getStringArray(R.array.demo_array);
         chipCloud.addChips(demoArray);
 
-        chipCloud.setChecked(2);
+        // chipCloud.setChecked(2);
 
         String label = chipCloud.getLabel(2);
         Log.d(TAG, "Label at index 2: " + label);
+
+        tvSelectedChipsCount = findViewById(R.id.tv_selected_chips_count);
 
         chipCloud.setListener(new ChipListener() {
             @Override
@@ -88,13 +93,18 @@ public class DemoActivity extends AppCompatActivity {
                 if (userClick) {
                     Log.d(TAG, String.format("chipCheckedChange Label at index: %d checked: %s", index, checked));
                 }
+
+                tvSelectedChipsCount.setText("Chips selected: " + chipCloud.getAllSelectedChips().size());
             }
 
             @Override
             public void chipDeleted(int index, String label) {
                 Log.d(TAG, String.format("chipDeleted at index: %d label: %s", index, label));
+                tvSelectedChipsCount.setText("Chips selected: " + chipCloud.getAllSelectedChips().size());
             }
         });
+
+        chipCloud.setChecked(2);
 
         //Deleteable
         FlexboxLayout deleteableFlexbox = findViewById(R.id.flexbox_deleteable);
