@@ -4,37 +4,29 @@ import android.graphics.Typeface;
 
 public class ChipCloudConfig {
 
+    public ChipCloud.SelectMode selectMode = ChipCloud.SelectMode.multi;
+    public boolean useInsetPadding = false;
     Typeface typeface = null;
-
     // Checked/Unchecked Chip color
     int checkedChipColor = -1;
     int uncheckedChipColor = -1;
     int checkedTextColor = -1;
     int uncheckedTextColor = -1;
-
     // Chip text size
     float chipTextSize = 13f;
-
     // TODO | Chip padding
     int chipPaddingStart = 9;
     int chipPaddingTop = 0;
     int chipPaddingEnd = 9;
     int chipPaddingBottom = 0;
-
     // Chip margin
     int chipMarginStart = 0;
     int chipMarginTop = 0;
     int chipMarginEnd = 0;
     int chipMarginBottom = 0;
-
     // TODO | Chip Stroke Color
     int chipStrokeColor = -1;
     int chipStrokeWidth = 1;
-
-    public ChipCloud.SelectMode selectMode = ChipCloud.SelectMode.multi;
-
-    public boolean useInsetPadding = false;
-
     long closeAnimationPeriod = -1;
     int closeTint = -1;
 

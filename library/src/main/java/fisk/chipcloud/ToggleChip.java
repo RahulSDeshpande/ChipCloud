@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.AppCompatCheckedTextView;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import eu.fiskur.chipcloud.R;
@@ -82,11 +81,11 @@ public class ToggleChip extends AppCompatCheckedTextView {
         return Bitmap.createScaledBitmap(bitmap, getResources().getDimensionPixelOffset(R.dimen.thirtytwo_dp), getResources().getDimensionPixelOffset(R.dimen.thirtytwo_dp), false);
     }
 
-    public void setLabel(String label) {
-        setText(label);
-    }
-
     public String getLabel() {
         return getText().toString();
+    }
+
+    public void setLabel(String label) {
+        setText(label);
     }
 }
