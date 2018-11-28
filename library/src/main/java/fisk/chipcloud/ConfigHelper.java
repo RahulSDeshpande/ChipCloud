@@ -60,11 +60,11 @@ class ConfigHelper {
                             config.chipMarginEnd,
                             config.chipMarginBottom
                     );
+            */
 
             if (config.typeface != null) {
                 toggleChip.setTypeface(config.typeface);
             }
-            */
         }
     }
 
