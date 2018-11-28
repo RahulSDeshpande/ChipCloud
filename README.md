@@ -128,17 +128,18 @@ then add the dependency to your project build.gradle:
 
 ```groovy
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.github.fiskurgit:ChipCloud:3.0.5'
+    ...
+    compile 'com.github.RahulSDeshpande:ChipCloud:3.0.6'
+    ...
 }
 ```
-You can find the latest version in the releases tab above: https://github.com/fiskurgit/ChipCloud/releases
+You can find the latest version in the releases tab above: https://github.com/RahulSDeshpande/ChipCloud/releases
 
-More options at jitpack.io: https://jitpack.io/#fiskurgit/ChipCloud
+More options at jitpack.io: https://jitpack.io/#RahulSDeshpande/ChipCloud
 
 ## Licence
 
-Full licence here: https://github.com/fiskurgit/ChipCloud/blob/master/LICENSE
+Full licence here: https://github.com/RahulSDeshpande/ChipCloud/blob/master/LICENSE
 
 In short:
 
