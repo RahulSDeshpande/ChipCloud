@@ -83,8 +83,8 @@ alternatively just use `.showClose(Color.parseColor("#a6a6a6")` and the chip wil
 ```java
     deleteableCloud.setDeleteListener(new ChipDeletedListener() {
       @Override
-      public void chipDeleted(int index, String label) {
-        Log.d(TAG, String.format("chipDeleted at index: %d label: %s", index, label));
+      public void onChipDeleted(int index, String label) {
+        Log.d(TAG, String.format("onChipDeleted at index: %d label: %s", index, label));
       }
     });
 ```

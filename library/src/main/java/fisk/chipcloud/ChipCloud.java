@@ -173,8 +173,8 @@ public class ChipCloud implements View.OnClickListener {
         }
 
         for (int index : indexes) {
-            ToggleChip chip = (ToggleChip) layout.getChildAt(index);
-            check(chip, selectOrDeselect, AUTO_CHECK);
+            ToggleChip toggleChip = (ToggleChip) layout.getChildAt(index);
+            check(toggleChip, selectOrDeselect, AUTO_CHECK);
             // chips.get(index).setChecked(selectOrDeselect);
         }
     }
@@ -185,8 +185,8 @@ public class ChipCloud implements View.OnClickListener {
         }
 
         for (int index : indexes) {
-            ToggleChip chip = (ToggleChip) layout.getChildAt(index);
-            check(chip, true, AUTO_CHECK);
+            ToggleChip toggleChip = (ToggleChip) layout.getChildAt(index);
+            check(toggleChip, true, AUTO_CHECK);
             // chips.get(index).setChecked(true);
         }
     }
@@ -278,6 +278,7 @@ public class ChipCloud implements View.OnClickListener {
             case close:
                 final int index = layout.indexOfChild(view);
                 final ToggleChip deletedChip = (ToggleChip) view;
+                final Chip chip = chips.get(index);
 
                 if (config.closeAnimationPeriod != -1) {
 
@@ -292,7 +293,7 @@ public class ChipCloud implements View.OnClickListener {
                         @Override
                         public void onAnimationEnd(Animation animation) {
                             if (chipListener != null) {
-                                chipListener.chipDeleted(index, deletedChip.getLabel());
+                                chipListener.onChipDeleted(index, deletedChip.getLabel(), chip);
                             }
                             layout.removeView(deletedChip);
                         }
@@ -305,7 +306,7 @@ public class ChipCloud implements View.OnClickListener {
                     view.startAnimation(anim);
                 } else {
                     if (chipListener != null) {
-                        chipListener.chipDeleted(index, deletedChip.getLabel());
+                        chipListener.onChipDeleted(index, deletedChip.getLabel(), chip);
                     }
                     layout.removeView(deletedChip);
                 }
@@ -333,7 +334,7 @@ public class ChipCloud implements View.OnClickListener {
             int index = layout.indexOfChild(toggleChip);
             chips.get(index).setChecked(checked);
 
-            chipListener.chipCheckedChange(index, toggleChip.getLabel(), checked, isUserClick);
+            chipListener.onChipCheckChanged(index, toggleChip.getLabel(), checked, isUserClick, chips.get(index));
         }
     }
 

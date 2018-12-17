@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexboxLayout;
 
+import fisk.chipcloud.Chip;
 import fisk.chipcloud.ChipCloud;
 import fisk.chipcloud.ChipCloudConfig;
 import fisk.chipcloud.ChipListener;
@@ -89,17 +90,17 @@ public class DemoActivity extends AppCompatActivity {
 
         chipCloud.setListener(new ChipListener() {
             @Override
-            public void chipCheckedChange(int index, String label, boolean checked, boolean userClick) {
+            public void onChipCheckChanged(int index, String label, boolean checked, boolean userClick, Chip chip) {
                 if (userClick) {
-                    Log.d(TAG, String.format("chipCheckedChange Label at index: %d checked: %s", index, checked));
+                    Log.d(TAG, String.format("onChipCheckChanged Label at index: %d checked: %s", index, checked));
                 }
 
                 tvSelectedChipsCount.setText("Chips selected: " + chipCloud.getAllSelectedChips().size());
             }
 
             @Override
-            public void chipDeleted(int index, String label) {
-                Log.d(TAG, String.format("chipDeleted at index: %d label: %s", index, label));
+            public void onChipDeleted(int index, String label, Chip chip) {
+                Log.d(TAG, String.format("onChipDeleted at index: %d label: %s", index, label));
                 tvSelectedChipsCount.setText("Chips selected: " + chipCloud.getAllSelectedChips().size());
             }
         });
@@ -131,15 +132,15 @@ public class DemoActivity extends AppCompatActivity {
 
         deleteableCloud.setListener(new ChipListener() {
             @Override
-            public void chipCheckedChange(int index, String label, boolean checked, boolean userClick) {
+            public void onChipCheckChanged(int index, String label, boolean checked, boolean userClick, Chip chip) {
                 if (userClick) {
-                    Log.d(TAG, String.format("chipCheckedChange Label at index: %d checked: %s", index, checked));
+                    Log.d(TAG, String.format("onChipCheckChanged Label at index: %d checked: %s", index, checked));
                 }
             }
 
             @Override
-            public void chipDeleted(int index, String label) {
-                Log.d(TAG, String.format("chipDeleted at index: %d label: %s", index, label));
+            public void onChipDeleted(int index, String label, Chip chip) {
+                Log.d(TAG, String.format("onChipDeleted at index: %d label: %s", index, label));
             }
         });
 

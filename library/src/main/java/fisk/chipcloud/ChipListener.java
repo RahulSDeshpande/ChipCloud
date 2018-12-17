@@ -2,9 +2,9 @@ package fisk.chipcloud;
 
 public interface ChipListener {
 
-    void chipCheckedChange(int index, String label, boolean checked, boolean userClick);
+    void onChipCheckChanged(int index, String label, boolean checked, boolean userClick, Chip chip);
 
     // TODO
-    // void chipDeleted(int index, String label, boolean userClick);
-    void chipDeleted(int index, String label);
+    // void onChipDeleted(int index, String label, boolean userClick);
+    void onChipDeleted(int index, String label, Chip chip);
 }
