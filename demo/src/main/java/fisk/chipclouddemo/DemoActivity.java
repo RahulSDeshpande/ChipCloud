@@ -75,7 +75,7 @@ public class DemoActivity extends AppCompatActivity {
 
         final ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
 
-        chipCloud.addChip("HelloWorld!");
+        chipCloud.addChip("HelloWorld!", null);
 
         String[] demoArray = getResources().getStringArray(R.array.demo_array);
         chipCloud.addChips(demoArray);
@@ -119,15 +119,15 @@ public class DemoActivity extends AppCompatActivity {
                 .uncheckedTextColor(Color.parseColor("#000000"));
 
         ChipCloud deleteableCloud = new ChipCloud(this, deleteableFlexbox, deleteableConfig);
-        deleteableCloud.addChip("Ardvark");
-        deleteableCloud.addChip("Baboon");
-        deleteableCloud.addChip("Cat");
-        deleteableCloud.addChip("Dog");
-        deleteableCloud.addChip("Eel");
-        deleteableCloud.addChip("Fox");
-        deleteableCloud.addChip("Giraffe");
-        deleteableCloud.addChip("Hyena");
-        deleteableCloud.addChip("Iguana");
+        deleteableCloud.addChip("Ardvark", null);
+        deleteableCloud.addChip("Baboon", null);
+        deleteableCloud.addChip("Cat", null);
+        deleteableCloud.addChip("Dog", null);
+        deleteableCloud.addChip("Eel", null);
+        deleteableCloud.addChip("Fox", null);
+        deleteableCloud.addChip("Giraffe", null);
+        deleteableCloud.addChip("Hyena", null);
+        deleteableCloud.addChip("Iguana", null);
 
         deleteableCloud.setListener(new ChipListener() {
             @Override

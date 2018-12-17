@@ -65,34 +65,44 @@ public class ChipCloud implements View.OnClickListener {
         this.ignoreAutoChecks = ignoreAutoChecks;
     }
 
+    // public <T> void addChips(T[] objects, List<Object> listMetadata) {
+    public <T> void addChips(T[] objects) {
+
+        for (T object : objects) {
+            addChip(object, null);
+        }
+    }
+
+    // public <T> void addChips(List<T> objects, List<Object> listMetadata) {
+    public <T> void addChips(List<T> objects) {
+
+        for (T object : objects) {
+            addChip(object, null);
+        }
+    }
+
     // TODO
     // public <T> void addChips(T[] objects, List<Chip> chips) {}
 
-    public <T> void addChips(T[] objects) {
-        for (T object : objects) {
-            addChip(object);
+    public void addChips(List<Chip> chips, boolean dummyTodo) {
+        for (Chip chip : chips) {
+            addChip(chip.getLabel(), chip.getMetadata());
         }
     }
 
-    public <T> void addChips(List<T> objects) {
-        for (T object : objects) {
-            addChip(object);
-        }
+    public <T> void addChip(T object, Object metadata) {
+        addChip(object, metadata, null);
     }
 
-    public <T> void addChip(T object) {
-        addChip(object, null);
+    public <T> void addChipNoResize(T object, Object metadata, Drawable drawable) {
+        addChip(object, metadata, drawable, false);
     }
 
-    public <T> void addChipNoResize(T object, Drawable drawable) {
-        addChip(object, drawable, false);
+    public <T> void addChip(T object, Object metadata, Drawable drawable) {
+        addChip(object, metadata, drawable, true);
     }
 
-    public <T> void addChip(T object, Drawable drawable) {
-        addChip(object, drawable, true);
-    }
-
-    public <T> void addChip(T object, Drawable drawable, boolean resizeDrawable) {
+    public <T> void addChip(T object, Object metadata, Drawable drawable, boolean resizeDrawable) {
         ToggleChip toggleChip;
         int chipHeight;
         if (config.useInsetPadding) {
@@ -130,7 +140,7 @@ public class ChipCloud implements View.OnClickListener {
             chips.add(new Chip(
                     (layout.getChildCount() - 1) < 0 ? 0 : (layout.getChildCount() - 1),
                     toggleChip.getLabel(),
-                    null));
+                    metadata));
         }
     }
 
