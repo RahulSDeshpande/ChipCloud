@@ -320,6 +320,32 @@ public class ChipCloud implements View.OnClickListener {
         }
     }
 
+    /*
+    public void removeChips(List<Chip> chips) {
+        for (Chip chip : chips) {
+            addChip(chip.getLabel(), chip.getMetadata());
+        }
+    }
+    */
+
+    public void removeAllChips() {
+        layout.removeAllViews();
+    }
+
+    private void removeChip(View view) {
+
+        ToggleChip clickedChip = (ToggleChip) view;
+
+        final int index = layout.indexOfChild(view);
+        final ToggleChip deletedChip = (ToggleChip) view;
+        final Chip chip = chips.get(index);
+
+        if (chipListener != null) {
+            chipListener.onChipDeleted(index, deletedChip.getLabel(), chip);
+        }
+        layout.removeView(deletedChip);
+    }
+
     private void check(ToggleChip toggleChip, boolean checked, boolean isUserClick) {
 
         toggleChip.setChecked(checked);
