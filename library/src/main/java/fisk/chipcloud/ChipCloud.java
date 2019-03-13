@@ -191,6 +191,23 @@ public class ChipCloud implements View.OnClickListener {
         }
     }
 
+    public void selectOrDeselectIndex(int index, boolean selectOrDeselect) {
+
+        ToggleChip toggleChip = (ToggleChip) layout.getChildAt(index);
+
+        switch (selectMode) {
+
+            case multi:
+            case single:
+                check(toggleChip, selectOrDeselect, AUTO_CHECK);
+                // chips.get(index).setChecked(false);
+                break;
+
+            default:
+                //
+        }
+    }
+
     public void deselectIndex(int index) {
 
         ToggleChip toggleChip = (ToggleChip) layout.getChildAt(index);
@@ -205,6 +222,17 @@ public class ChipCloud implements View.OnClickListener {
 
             default:
                 //
+        }
+    }
+
+    public void selectOrDeselectAllChips(boolean selectOrDeselect) {
+
+        for (int i = 0; i < chips.size(); i++) {
+
+            ToggleChip toggleChip = (ToggleChip) layout.getChildAt(i);
+
+            if (toggleChip.isChecked() != selectOrDeselect)
+                check(toggleChip, selectOrDeselect, AUTO_CHECK);
         }
     }
 
