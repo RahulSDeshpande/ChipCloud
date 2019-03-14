@@ -1,7 +1,6 @@
 package fisk.chipcloud;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.LayoutInflater;
@@ -23,7 +22,6 @@ public class ChipCloud implements View.OnClickListener {
     private final Context context;
     private final ViewGroup layout;
     private final SelectMode selectMode;
-    private Typeface typeface = null;
     private StateListDrawable customDrawable = null;
 
     private ChipCloudConfig config = null;
