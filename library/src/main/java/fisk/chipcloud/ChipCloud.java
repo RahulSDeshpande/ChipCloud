@@ -1,7 +1,6 @@
 package fisk.chipcloud;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.LayoutInflater;
@@ -23,7 +22,6 @@ public class ChipCloud implements View.OnClickListener {
     private final Context context;
     private final ViewGroup layout;
     private final SelectMode selectMode;
-    private Typeface typeface = null;
     private StateListDrawable customDrawable = null;
 
     private ChipCloudConfig config = null;
@@ -322,6 +320,7 @@ public class ChipCloud implements View.OnClickListener {
                         public void onAnimationEnd(Animation animation) {
                             if (chipListener != null) {
                                 chipListener.onChipDeleted(index, deletedChip.getLabel(), chip);
+                                chips.remove(chip);
                             }
                             layout.removeView(deletedChip);
                         }
@@ -335,6 +334,7 @@ public class ChipCloud implements View.OnClickListener {
                 } else {
                     if (chipListener != null) {
                         chipListener.onChipDeleted(index, deletedChip.getLabel(), chip);
+                        chips.remove(chip);
                     }
                     layout.removeView(deletedChip);
                 }
@@ -368,6 +368,7 @@ public class ChipCloud implements View.OnClickListener {
 
             if (chipListener != null && enableDeleteListener) {
                 chipListener.onChipDeleted(index, deletedChip.getLabel(), chips.get(index));
+                chips.remove(index);
             }
             layout.removeView(deletedChip);
         }
@@ -375,14 +376,13 @@ public class ChipCloud implements View.OnClickListener {
 
     private void removeChip(View view) {
 
-        ToggleChip clickedChip = (ToggleChip) view;
-
         final int index = layout.indexOfChild(view);
         final ToggleChip deletedChip = (ToggleChip) view;
         final Chip chip = chips.get(index);
 
         if (chipListener != null) {
             chipListener.onChipDeleted(index, deletedChip.getLabel(), chip);
+            chips.remove(chip);
         }
         layout.removeView(deletedChip);
     }
